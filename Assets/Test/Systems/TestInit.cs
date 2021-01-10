@@ -17,8 +17,8 @@ namespace Test.Systems
             var gameEntity = _contexts.game.CreateEntity();
             gameEntity.ReplacePosition(Vector3.one);
             gameEntity.isPlayer = true;
-            var gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            gameEntity.AddView(gameObject);
+            gameEntity.AddAsset("Sphere");
+            gameEntity.AddHealth(100.0f);
         }
     }
 }

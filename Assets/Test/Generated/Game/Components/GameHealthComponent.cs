@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Test.Components.ViewComponent view { get { return (Test.Components.ViewComponent)GetComponent(GameComponentsLookup.View); } }
-    public bool hasView { get { return HasComponent(GameComponentsLookup.View); } }
+    public Test.Components.HealthComponent health { get { return (Test.Components.HealthComponent)GetComponent(GameComponentsLookup.Health); } }
+    public bool hasHealth { get { return HasComponent(GameComponentsLookup.Health); } }
 
-    public void AddView(Test.Services.IView newValue) {
-        var index = GameComponentsLookup.View;
-        var component = (Test.Components.ViewComponent)CreateComponent(index, typeof(Test.Components.ViewComponent));
+    public void AddHealth(float newValue) {
+        var index = GameComponentsLookup.Health;
+        var component = (Test.Components.HealthComponent)CreateComponent(index, typeof(Test.Components.HealthComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceView(Test.Services.IView newValue) {
-        var index = GameComponentsLookup.View;
-        var component = (Test.Components.ViewComponent)CreateComponent(index, typeof(Test.Components.ViewComponent));
+    public void ReplaceHealth(float newValue) {
+        var index = GameComponentsLookup.Health;
+        var component = (Test.Components.HealthComponent)CreateComponent(index, typeof(Test.Components.HealthComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveView() {
-        RemoveComponent(GameComponentsLookup.View);
+    public void RemoveHealth() {
+        RemoveComponent(GameComponentsLookup.Health);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherView;
+    static Entitas.IMatcher<GameEntity> _matcherHealth;
 
-    public static Entitas.IMatcher<GameEntity> View {
+    public static Entitas.IMatcher<GameEntity> Health {
         get {
-            if (_matcherView == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.View);
+            if (_matcherHealth == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Health);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherView = matcher;
+                _matcherHealth = matcher;
             }
 
-            return _matcherView;
+            return _matcherHealth;
         }
     }
 }

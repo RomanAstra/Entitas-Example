@@ -5,8 +5,11 @@ namespace Test.Systems
 {
     internal sealed class PositionMoveSystems : ReactiveSystem<GameEntity>
     {
+        private readonly Contexts _context;
+
         public PositionMoveSystems(Contexts context) : base(context.game)
         {
+            _context = context;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -23,8 +26,7 @@ namespace Test.Systems
         {
             foreach (var gameEntity in entities)
             {
-                var valueTransform = gameEntity.view.Value.transform;
-                valueTransform.position = gameEntity.position.Value;
+                _context.game.viewService.value.SetPosition(gameEntity);
             }
         }
     }

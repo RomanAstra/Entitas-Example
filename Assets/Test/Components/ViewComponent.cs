@@ -1,10 +1,10 @@
 ﻿using Entitas;
-using UnityEngine;
+using Test.Services;
 
 namespace Test.Components
 {
     public sealed class ViewComponent : IComponent
     {
-        public GameObject Value;
+        public IView Value;
     }
 }

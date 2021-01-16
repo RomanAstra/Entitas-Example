@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 namespace Test.Systems
 {
@@ -10,6 +11,8 @@ namespace Test.Systems
         public PositionMoveSystems(Contexts context) : base(context.game)
         {
             _context = context;
+
+            Input.GetAxis("Fire1");
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)

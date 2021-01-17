@@ -10,6 +10,9 @@
             Add(new PositionMoveSystems(contexts));
             Add(new ApplyDamageSystem(contexts));
             Add(new CreateViewByAssetSystem(contexts));
+            Add(new InputSystem(contexts));
+            Add(new CreateBulletForFireSystem(contexts));
+            Add(new ShotMovementSystem(contexts));
         }
     }
 }

@@ -11,21 +11,29 @@ public static class GameComponentsLookup {
     public const int HealthListener = 0;
     public const int PrefabLoader = 1;
     public const int Asset = 2;
-    public const int Health = 3;
-    public const int Player = 4;
-    public const int Position = 5;
-    public const int View = 6;
-    public const int ViewService = 7;
+    public const int Bullet = 3;
+    public const int Enemy = 4;
+    public const int Fire = 5;
+    public const int Health = 6;
+    public const int Player = 7;
+    public const int Position = 8;
+    public const int Rotation = 9;
+    public const int View = 10;
+    public const int ViewService = 11;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "HealthListener",
         "PrefabLoader",
         "Asset",
+        "Bullet",
+        "Enemy",
+        "Fire",
         "Health",
         "Player",
         "Position",
+        "Rotation",
         "View",
         "ViewService"
     };
@@ -34,9 +42,13 @@ public static class GameComponentsLookup {
         typeof(HealthListenerComponent),
         typeof(PrefabLoaderComponent),
         typeof(Test.Components.AssetComponent),
+        typeof(Test.Components.BulletComponent),
+        typeof(Test.Components.Enemy),
+        typeof(Test.Components.FireComponent),
         typeof(Test.Components.HealthComponent),
         typeof(Test.Components.PlayerComponent),
         typeof(Test.Components.PositionComponent),
+        typeof(Test.Components.RotationComponent),
         typeof(Test.Components.ViewComponent),
         typeof(ViewServiceComponent)
     };

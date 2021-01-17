@@ -16,9 +16,8 @@ namespace Test.Systems
         {
             var gameEntity = _contexts.game.CreateEntity();
             gameEntity.ReplacePosition(Vector3.one);
+            gameEntity.AddRotation(0);
             gameEntity.isPlayer = true;
-            gameEntity.AddAsset("Sphere");
-            gameEntity.AddHealth(100.0f);
         }
     }
 }
